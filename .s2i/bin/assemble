@@ -8,6 +8,17 @@ echo "---> Enabling s2i support in httpd24 image"
 
 config_s2i
 
+## Adding the customize content" ##
+
+echo "---> Installing the application source"
+cp -Rf /tmp/src/*.html ./
+DATE=`date "+%Y-%m-%d"`
+echo "---> Creating the info html"
+echo "Information page built on $DATE" >> ./info.html
+echo "astra inlinant, sed non obligant" >> ./info.html
+
+## End of the customization ##
+
 if [ -d ./httpd-cfg ]; then
   echo "---> Copying httpd configuration files..."
   if [ "$(ls -A ./httpd-cfg/*.conf)" ]; then
