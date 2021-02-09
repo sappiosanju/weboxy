@@ -8,6 +8,17 @@ echo "---> Enabling s2i support in httpd24 image"
 
 config_s2i
 
+# Customizing the build image #
+echo "Copying all html files ..."
+cp -vrf /tmp/src*.html ./
+
+DATE=`date +%Y-%m-%d`
+echo "---> Create the info page ---"
+echo "Page created on ${DATE}">> ./info.html
+echo "Customizing S2I Builds" >> ./info.html
+
+# Finished customizing
+
 if [ -d ./httpd-cfg ]; then
   echo "---> Copying httpd configuration files..."
   if [ "$(ls -A ./httpd-cfg/*.conf)" ]; then
