@@ -10,7 +10,7 @@ config_s2i
 
 # Customizing the build image #
 echo "Copying all html files ..."
-cp -vrf /tmp/src*.html ./
+cp -vrf /tmp/src/*.html ./
 
 DATE=`date +%Y-%m-%d`
 echo "---> Create the info page ---"
